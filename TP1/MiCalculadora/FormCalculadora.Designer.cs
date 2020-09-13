@@ -48,7 +48,7 @@
             this.btnLimpiar.TabIndex = 0;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            this.btnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
             // btnCerrar
             // 
@@ -59,7 +59,7 @@
             this.btnCerrar.TabIndex = 1;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // btnOperar
             // 
@@ -70,7 +70,7 @@
             this.btnOperar.TabIndex = 2;
             this.btnOperar.Text = "Operar";
             this.btnOperar.UseVisualStyleBackColor = true;
-            this.btnOperar.Click += new System.EventHandler(this.btnOperar_Click);
+            this.btnOperar.Click += new System.EventHandler(this.BtnOperar_Click);
             // 
             // btnConvertirADecimal
             // 
@@ -81,7 +81,7 @@
             this.btnConvertirADecimal.TabIndex = 3;
             this.btnConvertirADecimal.Text = "Convertir a Decimal";
             this.btnConvertirADecimal.UseVisualStyleBackColor = true;
-            this.btnConvertirADecimal.Click += new System.EventHandler(this.btnConvertirADecimal_Click);
+            this.btnConvertirADecimal.Click += new System.EventHandler(this.BtnConvertirADecimal_Click);
             // 
             // btnConvertirABinario
             // 
@@ -92,7 +92,7 @@
             this.btnConvertirABinario.TabIndex = 4;
             this.btnConvertirABinario.Text = "Convertir a Binario";
             this.btnConvertirABinario.UseVisualStyleBackColor = true;
-            this.btnConvertirABinario.Click += new System.EventHandler(this.btnConvertirABinario_Click);
+            this.btnConvertirABinario.Click += new System.EventHandler(this.BtnConvertirABinario_Click);
             // 
             // txtNumero1
             // 
@@ -160,6 +160,7 @@
             this.MinimizeBox = false;
             this.Name = "FormCalculadora";
             this.Text = "Calculadora de Matias Sanchez del curso 2°A ";
+            this.Load += new System.EventHandler(this.FormCalculadora_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -12,14 +12,13 @@ namespace Entidades
         //ATTRIBUTES
         public double numero;
         //CONSTRUCTORS
+
         public Numero()
         {
-            //this.numero = 0;
             this.SetNumero = Convert.ToString(0);
         }
         public Numero(double numero)
         {
-            //this.numero = numero;
             this.SetNumero = numero.ToString();
         }
         public Numero(string strNumero)
@@ -55,22 +54,31 @@ namespace Entidades
         /// <returns>Retorna el binario correspondiente, caso contrario "Valor invalido"</returns>
         public string DecimalBinario(string numero)
         {
-            string retorno = "";
+            string retorno;
             if (double.TryParse(numero, out double valor))
             {
                 retorno = DecimalBinario(valor);
             }
             else
             {
-                retorno = "Valor invalido";
+                retorno = "Valor inválido";
             }
             return retorno;
         }
         public string DecimalBinario(double numero)
         {
-            int valueInt = (int)Math.Round(numero);
-            string binary = Convert.ToString(valueInt, 2);
-            return binary;
+            string ret;
+            if (numero >= 0)
+            {
+                int valueInt = (int)Math.Round(numero);
+                ret = Convert.ToString(valueInt, 2);
+            }
+            else
+            {
+                ret = "Valor inválido";
+            }
+           
+            return ret;
         }
         private bool EsBinario(string binario)
         {
@@ -85,15 +93,16 @@ namespace Entidades
         }
         private double ValidarNumero(string strNumero)
         {
-            double newValue;
-            if(double.TryParse(strNumero, out newValue) == true)
+            double ret;
+            if(double.TryParse(strNumero, out double newValue) == true)
             {
-                return newValue;
+                ret = newValue;
             }
             else
             {
-                return 0;
+                ret = 0;
             }
+            return ret;
         }
 
         //OPERATORS OVERLOAD
