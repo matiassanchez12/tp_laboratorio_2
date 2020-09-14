@@ -62,7 +62,7 @@ namespace MiCalculadora
             lblResultado.Text = num.BinarioDecimal(lblResultado.Text);
         }
         /// <summary>
-        /// Borra el texto que hay en cada componente 
+        /// Borra el texto que hay en cada componente solicitado
         /// </summary>
         private void Limpiar()
         {
