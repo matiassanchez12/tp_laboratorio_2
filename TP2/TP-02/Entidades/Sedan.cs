@@ -14,17 +14,24 @@ namespace Entidades
         private ETipo tipo;
 
         /// <summary>
-        /// Por defecto, TIPO será Monovolumen
+        /// Por defecto, TIPO será CuatroPuertas
         /// </summary>
-        /// <param name="marca"></param>
-        /// <param name="chasis"></param>
-        /// <param name="color"></param>
+        /// <param name="marca">Tipo de marca</param>
+        /// <param name="chasis">Tipo de chasis</param>
+        /// <param name="color">Tipo de color</param>
         public Sedan(EMarca marca, string chasis, ConsoleColor color)
             : base(chasis, marca, color)
         {
             tipo = ETipo.CuatroPuertas;
         }
-
+        /// <summary>
+        /// Constructor parametrizado, inicializa marca, chasis y color utilizando el constructor de la base
+        /// ademas inicializa el atributo tipo
+        /// </summary>
+        /// <param name="marca">Tipo de marca</param>
+        /// <param name="chasis">Tipo de chasis</param>
+        /// <param name="color">Tipo de color</param>
+        /// <param name="unTipo">Tipo de vehiculo sedan</param>
         public Sedan(EMarca marca, string chasis, ConsoleColor color, ETipo unTipo)
             : base(chasis, marca, color)
         {
@@ -41,6 +48,10 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Muestra datos generales del vehiculo y el tamaño
+        /// </summary>
+        /// <returns>Los datos en forma de string del vehiculo</returns>
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();

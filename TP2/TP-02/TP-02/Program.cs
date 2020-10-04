@@ -13,8 +13,7 @@ namespace TP_02_2018
         {
             // Configuración de la pantalla
             Console.SetWindowPosition(0, 0);
-            Console.SetWindowSize(Console.LargestWindowWidth / 2, Console.LargestWindowHeight - 4);
-
+            Console.SetWindowSize(Console.LargestWindowWidth / 2, Console.LargestWindowHeight - 2);
             // Nombre del alumno
             Console.Title = "Matias Sanchez";
 

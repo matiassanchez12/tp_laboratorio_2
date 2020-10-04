@@ -28,24 +28,20 @@ namespace Entidades
         #endregion
 
         #region "Constructores"
+        /// <summary>
+        /// Constructor por defecto, inicializa la lista de vehiculos.
+        /// </summary>
         private Taller()
         {
             this.vehiculos = new List<Vehiculo>();
         }
+        /// <summary>
+        /// Constructor parametrizado, reutilizo el primer constructor y ademas inicializo el espacio disponible
+        /// </summary>
+        /// <param name="espacioDisponible"></param>
         public Taller(int espacioDisponible):this()
         {
             this.espacioDisponible = espacioDisponible;
-        }
-        #endregion
-
-        #region "Sobrecargas"
-        /// <summary>
-        /// Muestro el estacionamiento y TODOS los vehículos
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return Listar(this, ETipo.Todos);
         }
         #endregion
 
@@ -61,10 +57,7 @@ namespace Entidades
         public static string Listar(Taller taller, ETipo tipo)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("*********Datos del taller*********");
             sb.AppendFormat("Tenemos {0} lugares ocupados de un total de {1} disponibles", taller.vehiculos.Count, taller.espacioDisponible);
-            sb.AppendLine();
-            sb.AppendFormat("*********Listado de vehiculos del tipo : {0}", tipo.ToString());
             sb.AppendLine();
             foreach (Vehiculo v in taller.vehiculos)
             {
@@ -81,13 +74,23 @@ namespace Entidades
         }
         #endregion
 
-        #region "Operadores"
+        #region "Sobrecargas de Operadores"
+
+        /// <summary>
+        /// Muestro el estacionamiento y TODOS los vehículos
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Listar(this, ETipo.Todos);
+        }
+
         /// <summary>
         /// Agregará un elemento a la lista
         /// </summary>
         /// <param name="taller">Objeto donde se agregará el elemento</param>
         /// <param name="vehiculo">Objeto a agregar</param>
-        /// <returns></returns>
+        /// <returns>Caso de exito, devuelve taller con el vehiculo, sino el mismo taller que se paso como parametro</returns>
         public static Taller operator +(Taller taller, Vehiculo vehiculo)
         {
             foreach (Vehiculo v in taller.vehiculos)
@@ -110,7 +113,7 @@ namespace Entidades
         /// </summary>
         /// <param name="taller">Objeto donde se quitará el elemento</param>
         /// <param name="vehiculo">Objeto a quitar</param>
-        /// <returns></returns>
+        /// <returns>Caso de exito, devuelve taller sin el vehiculo, sino el mismo taller que se paso como parametro</returns>
         public static Taller operator -(Taller taller, Vehiculo vehiculo)
         {
             foreach (Vehiculo v in taller.vehiculos)

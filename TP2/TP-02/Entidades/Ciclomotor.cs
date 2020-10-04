@@ -8,6 +8,12 @@ namespace Entidades
 {
     public class Ciclomotor : Vehiculo
     {
+        /// <summary>
+        /// Constructor parametrizado, inicializa marca, chasis y color utilizando el constructor de la base
+        /// </summary>
+        /// <param name="marca">El tipo de marca</param>
+        /// <param name="chasis">El tipo de chasis</param>
+        /// <param name="color">El tipo de color</param>
         public Ciclomotor(EMarca marca, string chasis, ConsoleColor color) :base(chasis, marca, color){ }
 
         /// <summary>
@@ -21,6 +27,10 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Muestra datos generales del vehiculo y el tamaño
+        /// </summary>
+        /// <returns>Los datos en forma de string del vehiculo</returns>
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
