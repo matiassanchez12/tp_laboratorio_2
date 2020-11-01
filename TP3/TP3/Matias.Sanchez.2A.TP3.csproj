@@ -49,5 +49,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Archivos\Archivos.csproj">
+      <Project>{34d694bd-bfba-42eb-b332-e777439529bc}</Project>
+      <Name>Archivos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Clases Abstractas\Clases Abstractas.csproj">
+      <Project>{0e1fa11a-5b79-4f0e-937c-096b123522f0}</Project>
+      <Name>Clases Abstractas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Clases Instanciables.csproj">
+      <Project>{f43feafb-7f30-4ed8-8eac-775736794d93}</Project>
+      <Name>Clases Instanciables</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Excepciones\Excepciones.csproj">
+      <Project>{ab71def9-0540-412a-be15-b290d8efb14d}</Project>
+      <Name>Excepciones</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

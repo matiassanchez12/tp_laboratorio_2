@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Clases_Abstractas;
+using EntidadesAbstractas;
 
-namespace Clases_Instanciables
+namespace ClasesInstanciables
 {
     public class Alumno:Universitario
     {
+        #region Atributos
         private Universidad.EClases claseQueToma;
         private EEstadoCuenta estadoCuenta;
         public enum EEstadoCuenta {AlDia, Deudor, Becado };
+        #endregion
+
         #region Constructores
         public Alumno()
         {

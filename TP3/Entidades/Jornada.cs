@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Archivos;
 using Excepciones;
 
-namespace Clases_Instanciables
+namespace ClasesInstanciables
 {
     public class Jornada
     {
@@ -76,23 +76,22 @@ namespace Clases_Instanciables
         #region Metodos
         public static bool Guardar(Jornada jornada)
         {
-            bool ret = false;
+            bool guardo;
             try
             {
                 Texto archivo = new Texto();
-                bool guardo = archivo.Guardar("Jornada.txt", jornada.ToString());
-                ret = true;
+                guardo = archivo.Guardar("Jornada.txt", jornada.ToString());
             }
             catch(Exception e)
             {
-                throw new ArchivosException(e);
+                throw new ArchivosException("Error, no se pudo guardar el archivo txt", e);
             }
-            return ret;
+            return guardo;
         }
         public static string Leer()
         {
             string ret = "";
-            bool read = false;
+            bool read;
             try
             {
                 Texto archivo = new Texto();
@@ -100,7 +99,7 @@ namespace Clases_Instanciables
             }
             catch (Exception e)
             {
-                throw new ArchivosException(e);
+                throw new ArchivosException("Error, no se pudo leer el archivo txt", e);
             }
             return ret;
         }

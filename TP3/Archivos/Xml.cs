@@ -11,6 +11,13 @@ namespace Archivos
 {
     public class Xml<T> : IArchivo<T>
     {
+        /// <summary>
+        /// Guarda un archivo en formato Xml, recibiendo como parametros un string con el nombre
+        /// del archivo y el otro parametros son los datos a ser guardados
+        /// </summary>
+        /// <param name="archivo"></param>
+        /// <param name="datos"></param>
+        /// <returns>true en caso de que se puso guardar con exito, caso contrario false</returns>
         public bool Guardar(string archivo, T datos)
         {
             bool ret = false;
@@ -25,14 +32,22 @@ namespace Archivos
             }
             catch (InvalidOperationException e)
             {
-                throw new ArchivosException(e);
+                throw new ArchivosException("Ocurrio un error, no se pudo guardar el archivo", e);
             }
             catch (Exception e)
             {
-                throw new ArchivosException(e);
+                throw new ArchivosException("Ocurrio un error, no se pudo guardar el archivo", e);
             }
             return ret;
         }
+        /// <summary>
+        /// Se encarga de leer un archivo de tipo xml, recibiendo un string con el nombre
+        /// de este archivo y ademas un dato de tipo generico que es donde se guardaran los datos
+        /// que el metodo pudo leer
+        /// </summary>
+        /// <param name="archivo"></param>
+        /// <param name="datos"></param>
+        /// <returns>True si pudo leer correctamente, false caso contrario</returns>
         public bool Leer(string archivo, out T datos)
         {
             bool ret = false;
@@ -47,11 +62,11 @@ namespace Archivos
             }
             catch (InvalidOperationException e)
             {
-                throw new ArchivosException(e);
+                throw new ArchivosException("Ocurrio un error, no se pudo guardar el archivo", e);
             }
             catch (Exception e)
             {
-                throw new ArchivosException(e);
+                throw new ArchivosException("Ocurrio un error, no se pudo guardar el archivo", e);
             }
             return ret;
         }

@@ -4,20 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using Excepciones;
 
-namespace Clases_Abstractas
+namespace EntidadesAbstractas
 {
     public abstract class Persona
     {
+        #region Atributos
         private string nombre;
         private string apellido;
         private int dni;
         private ENacionalidad nacionalidad;
         public enum ENacionalidad
         {
-            Argentina,
-            Extranjera
+            Argentino,
+            Extranjero
         }
+        #endregion
 
         #region Constructores
         /// <summary>
@@ -126,19 +129,55 @@ namespace Clases_Abstractas
         /// <returns>El dni validado</returns>
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
         {
-            switch (nacionalidad)
+            /* switch (nacionalidad)
+             {
+                 case ENacionalidad.Argentino:
+                     if (dato < 1 || dato > 89999999)
+                         throw new NacionalidadInvalidaException();
+                     break;
+                 case ENacionalidad.Extranjero:
+                     try
+                     {
+                         if (dato < 89999999 || dato > 99999999)
+                         {
+                             throw new NacionalidadInvalidaException();
+                         }
+                     }
+                     catch(Exception e)
+                     {
+                         throw new NacionalidadInvalidaException();
+                     }
+                     break;
+             }
+             return dato;*/
+            if (dato > 0 && dato < 90000000)
             {
-                case ENacionalidad.Argentina:
-                    if (dato < 1 || dato > 89999999)
-                        throw new NacionalidadInvalidaException(dato.ToString());
-                    break;
-                case ENacionalidad.Extranjera:
-                    if (dato < 89999999 || dato > 99999999)
-                        throw new NacionalidadInvalidaException();
-                    break;
+                if (nacionalidad == ENacionalidad.Argentino)
+                {
+                    return dato;
+                }
+                else
+                {
+                    throw new NacionalidadInvalidaException("La nacionalidad no se condice con el número de DNI");
+                }
             }
-            return dato;
-        }
+            else if (dato >= 90000000 && dato <= 99999999)
+            {
+                if (nacionalidad == ENacionalidad.Extranjero)
+                {
+                    return dato;
+                }
+                else
+                {
+                    throw new NacionalidadInvalidaException("La nacionalidad no se condice con el número de DNI");
+                }
+            }
+            else
+            {
+                throw new DniInvalidoException("Formato de DNI incorrecto; no debe tener mas de 8 digitos ni ser" +
+                    "un numero negativo");
+            }
+    }
         /// <summary>
         ///  Metodo que sirve para validar que un string tenga las caracteristicas de un dni
         /// </summary>

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Clases_Abstractas;
+using EntidadesAbstractas;
 
-namespace Clases_Instanciables
+namespace ClasesInstanciables
 {
     public sealed class Profesor:Universitario
     {
@@ -26,6 +26,8 @@ namespace Clases_Instanciables
         public Profesor()
         {
             this.clasesDelDia = new Queue<Universidad.EClases>();
+            this._randomClases();
+            this._randomClases();
         }
         /// <summary>
         /// Constructor parametrizado, reutilizando el constructor base para inicilizar 
@@ -82,7 +84,6 @@ namespace Clases_Instanciables
         {
             int cantEnum = Enum.GetNames(typeof(Universidad.EClases)).Length;
             int numberRandom = Profesor.random.Next(0, cantEnum);
-            this.clasesDelDia.Enqueue((Universidad.EClases)numberRandom);
             this.clasesDelDia.Enqueue((Universidad.EClases)numberRandom);
         }
         #endregion

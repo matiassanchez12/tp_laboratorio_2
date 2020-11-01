@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Clases_Abstractas
+namespace EntidadesAbstractas
 {
     public abstract class Universitario:Persona
     {
+        #region Atributos
         private int legajo;
+        #endregion
+
         #region Constructores
         /// <summary>
         /// Constructor de universitario por defecto

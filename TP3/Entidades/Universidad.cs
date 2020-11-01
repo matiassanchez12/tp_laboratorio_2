@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Excepciones;
 using Archivos;
 
-namespace Clases_Instanciables
+namespace ClasesInstanciables
 {
     public class Universidad
     {
@@ -78,28 +78,58 @@ namespace Clases_Instanciables
         private static string MostrarDatos(Universidad uni)
         {
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Datos alumnos:");
+            sb.AppendLine();
+            foreach (Alumno auxAlumno in uni.Alumnos)
+            {
+                sb.AppendLine(auxAlumno.ToString());
+            }
+            foreach (Profesor auxProfesor in uni.Instructores)
+            {
+                sb.AppendLine(auxProfesor.ToString());
+            }
+            foreach (Jornada auxJornada in uni.Jornadas)
+            {
+                sb.AppendLine(auxJornada.ToString());
+            }
             return sb.ToString();
         }
         public static bool Guardar(Universidad uni)
         {
-            bool ret = false;
+            bool archivoGuardado;
             try
             {
-
+                Xml<Universidad> archivoXml = new Xml<Universidad>();
+                archivoGuardado = archivoXml.Guardar("Universidad.xml", uni);
             }
             catch (ArgumentNullException e)
             {
-                throw new ArchivosException(e);
+                throw new ArchivosException("No se pudo guardar el archivo", e);
             }
             catch (Exception e)
             {
-                throw new ArchivosException(e);
+                throw new ArchivosException("No se pudo guardar el archivo", e);
             }
-            return ret;
+            return archivoGuardado;
         }
-        public Universidad Leer()
+        public static Universidad Leer()
         {
-            return this;
+            bool archivoLeido;
+            Universidad auxUniversidad;
+            try
+            {
+                Xml<Universidad> archivoXml = new Xml<Universidad>();
+                archivoLeido = archivoXml.Leer("Universidad.xml", out auxUniversidad);
+            }
+            catch (ArgumentNullException e)
+            {
+                throw new ArchivosException("No se pudo leer el archivo", e);
+            }
+            catch (Exception e)
+            {
+                throw new ArchivosException("No se pudo leer el archivo", e);
+            }
+            return auxUniversidad;
         }
         #endregion
 
