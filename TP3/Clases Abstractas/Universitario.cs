@@ -16,7 +16,7 @@ namespace EntidadesAbstractas
         /// <summary>
         /// Constructor de universitario por defecto
         /// </summary>
-        public Universitario()
+        public Universitario():base()
         {
 
         }
@@ -36,7 +36,7 @@ namespace EntidadesAbstractas
 
         #region Metodos
         /// <summary>
-        /// Metodo abstracto, sera utilizado en las clases hijas
+        /// Metodo abstracto, sera utilizado en las clases que heredan esta clase
         /// </summary>
         /// <returns></returns>
         protected abstract string ParticiparEnClase();
@@ -47,30 +47,55 @@ namespace EntidadesAbstractas
         protected virtual string MostrarDatos()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Datos del universitario");
-            sb.AppendLine($"{base.ToString()}");
-            sb.AppendLine($"Legajo: {this.legajo}");
+            sb.AppendLine(base.ToString());
+            sb.AppendLine($"LEGAJO NUMERO: {this.legajo}");
             return sb.ToString();
         }
         #endregion
 
         #region Sobrecargas
+        /// <summary>
+        /// Sobrecarga del metodo equals, que compara un dato de tipo object con
+        /// la instancia que llamo al metodo.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>True si object y la instancia son iguales, caso contrario False</returns>
         public override bool Equals(object obj)
         {
-            return base.Equals(obj);
+            return this == (Universitario)obj;
         }
+        /// <summary>
+        /// Sobrecarga de igual igual, comprueba que si el legajo y el DNI de dos
+        /// universitarios son iguales, entonces son la misma Persona.
+        /// </summary>
+        /// <param name="pg1"></param>
+        /// <param name="pg2"></param>
+        /// <returns>True si son iguales, caso contrario False</returns>
         public static bool operator ==(Universitario pg1, Universitario pg2) 
         {
             bool ret = false;
-            if(pg1.GetType() == pg2.GetType())
+            try
             {
-                if (pg1.legajo == pg2.legajo && pg1.DNI == pg2.DNI)
+                if (pg1.GetType() == pg2.GetType())
                 {
-                    ret = true;
+                    if (pg1.legajo == pg2.legajo || pg1.DNI == pg2.DNI)
+                    {
+                        ret = true;
+                    }
                 }
+                return ret;
             }
-            return ret;
+            catch(NullReferenceException e)
+            {
+                throw new NullReferenceException("Alguna de las referencias pasadas por parametros es null", e);
+            }
         }
+        /// <summary>
+        /// Compara dos universitarios y comprueba que sean distintos
+        /// </summary>
+        /// <param name="pg1"></param>
+        /// <param name="pg2"></param>
+        /// <returns>True si son distintos, false si son iguales</returns>
         public static bool operator !=(Universitario pg1, Universitario pg2) { return !(pg1 == pg2); }
 
         #endregion

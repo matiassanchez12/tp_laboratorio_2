@@ -8,7 +8,7 @@ using Excepciones;
 
 namespace Archivos
 {
-    public class Texto:IArchivo<string>
+    public class Texto : IArchivo<string>
     {
         /// <summary>
         /// Constructor por defecto de texto
@@ -35,6 +35,10 @@ namespace Archivos
                     ret = true;
                 }
             }
+            catch (ArgumentNullException e)
+            {
+                throw new ArchivosException("Error, Uno de los parametros pasados es null", e);
+            }
             catch (Exception e)
             {
                 throw new ArchivosException("Ocurrio un error, no se pudo guardar el archivo", e);
@@ -59,6 +63,10 @@ namespace Archivos
                     ret = true;
                 }
             }
+            catch (ArgumentNullException e)
+            {
+                throw new ArchivosException("Error, Uno de los parametros pasados es null", e);
+            }
             catch (Exception e)
             {
                 throw new ArchivosException("Ocurrio un error, no se pudo leer el archivo", e);
@@ -67,3 +75,4 @@ namespace Archivos
         }
     }
 }
+

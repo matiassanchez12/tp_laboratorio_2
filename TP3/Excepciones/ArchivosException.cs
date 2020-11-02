@@ -8,10 +8,16 @@ namespace Excepciones
 {
     public class ArchivosException:Exception
     {
+        /// <summary>
+        /// Este Constructor reutiliza el constructor de la clase base, pasandole un mensaje
+        /// </summary>
         public ArchivosException():base("Error, no se pudo leer o escribir el archivo")
         {
 
         }
+        /// <summary>
+        /// Este Constructor reutiliza el constructor de la clase base, pasandole un mensaje personalizado
+        /// </summary>
         public ArchivosException(string message) : base(message)
         {
 

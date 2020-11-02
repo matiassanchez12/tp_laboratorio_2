@@ -1,0 +1,25 @@
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\TP3UnitTest.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\TP3UnitTest.pdb
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Archivos.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Clases Abstractas.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Entidades.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Excepciones.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Archivos.pdb
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Clases Abstractas.pdb
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Entidades.pdb
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Excepciones.pdb
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\obj\Debug\TP3UnitTest.csprojAssemblyReference.cache
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\obj\Debug\TP3UnitTest.csproj.CoreCompileInputs.cache
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\obj\Debug\TP3UnitTest.csproj.CopyComplete
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\obj\Debug\TP3UnitTest.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3UnitTest\obj\Debug\TP3UnitTest.pdb

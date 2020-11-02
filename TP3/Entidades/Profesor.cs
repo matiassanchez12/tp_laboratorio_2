@@ -21,7 +21,8 @@ namespace ClasesInstanciables
             random = new Random();
         }
         /// <summary>
-        /// Constructor por defecto, inicializa el atributo clasesDelDia 
+        /// Constructor por defecto, inicializa clasesDelDia, seteando dos clasesDelDia
+        /// seleccionadas de forma random, con el metodo _randomclases.
         /// </summary>
         public Profesor()
         {
@@ -31,7 +32,8 @@ namespace ClasesInstanciables
         }
         /// <summary>
         /// Constructor parametrizado, reutilizando el constructor base para inicilizar 
-        /// los atributos heredados. Tambien inicializa clasesDelDia 
+        /// los atributos heredados. Tambien inicializa clasesDelDia, seteando dos clasesDelDia 
+        /// seleccionadas de forma random, con el metodo _randomclases.
         /// </summary>
         /// <param name="id"></param>
         /// <param name="nombre"></param>
@@ -41,6 +43,8 @@ namespace ClasesInstanciables
         public Profesor(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad) : base(id, nombre, apellido, dni, nacionalidad)
         {
             this.clasesDelDia = new Queue<Universidad.EClases>();
+            this._randomClases();
+            this._randomClases();
         }
         #endregion
 
@@ -52,11 +56,18 @@ namespace ClasesInstanciables
         protected override string MostrarDatos()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(base.MostrarDatos());
-            sb.AppendLine("Clase del profesor: ");
-            foreach (Universidad.EClases item in this.clasesDelDia)
+            try
             {
-                sb.AppendLine($"Clase: {item}");
+                sb.AppendLine(base.MostrarDatos());
+                sb.AppendLine(this.ParticiparEnClase());
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                throw new ArgumentOutOfRangeException("Ocurrio un error al cargar los datos", e);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocurrio un error al cargar los datos", e);
             }
             return sb.ToString();
         }
@@ -67,12 +78,19 @@ namespace ClasesInstanciables
         protected override string ParticiparEnClase()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("CLASES DEL DIA");
-            foreach (Universidad.EClases item in this.clasesDelDia)
+            try
             {
-                sb.Append($"- {item}");
+                sb.AppendLine("CLASES DEL DIA: ");
+                foreach (Universidad.EClases clase in this.clasesDelDia)
+                {
+                    sb.AppendLine(Enum.GetName(typeof(Universidad.EClases), clase));
+                }
+                return sb.ToString();
             }
-            return sb.ToString();
+            catch (Exception e)
+            {
+                throw new Exception("Error al ejecutar metodo ParticiparEnClase", e);
+            }
         }
         /// <summary>
         /// Este metodo sirve para agregar a la Queue 2 clases 
@@ -89,6 +107,10 @@ namespace ClasesInstanciables
         #endregion
 
         #region Sobrecargas
+        /// <summary>
+        /// Se encarga de hacer publico los datos de esta clase
+        /// </summary>
+        /// <returns>Los datos de un profesor en forma de string</returns>
         public override string ToString()
         {
             return this.MostrarDatos();
@@ -102,16 +124,23 @@ namespace ClasesInstanciables
         public static bool operator ==(Profesor i, Universidad.EClases clase)
         {
             bool ret = false;
-            if(i.clasesDelDia.Count > 0)
+            try
             {
-                foreach (Universidad.EClases item in i.clasesDelDia)
+                if (i.clasesDelDia.Count > 0)
                 {
-                    if (item == clase)
+                    foreach (Universidad.EClases auxClase in i.clasesDelDia)
                     {
-                        ret = true;
-                        break;
+                        if (auxClase == clase)
+                        {
+                            ret = true;
+                            break;
+                        }
                     }
                 }
+            }
+           catch (NullReferenceException e)
+            {
+                throw new NullReferenceException("Instancia de Profesor o de EClases pasadas como parametro es null", e);
             }
             return ret;
         }

@@ -38,8 +38,8 @@ namespace EntidadesAbstractas
         /// <param name="nacionalidad"></param>
         public Persona(string nombre, string apellido, ENacionalidad nacionalidad)
         {
-            this.Nombre = nombre;
             this.Apellido = apellido;
+            this.Nombre = nombre;
             this.Nacionalidad = nacionalidad;
         }
         /// <summary>
@@ -67,24 +67,7 @@ namespace EntidadesAbstractas
         #endregion
 
         #region Propiedades
-        public int DNI
-        {
-            get
-            {
-                return this.dni;
-            }
-            set
-            {
-                this.dni = ValidarDni(this.nacionalidad, value);
-            }
-        }
-        public string StringToDNI
-        {
-            set
-            {
-                this.DNI = ValidarDni(this.nacionalidad, value);
-            }
-        }
+
         public string Nombre
         {
             get
@@ -118,66 +101,56 @@ namespace EntidadesAbstractas
                 this.nacionalidad = value;
             }
         }
+        public int DNI
+        {
+            get
+            {
+                return this.dni;
+            }
+            set
+            {
+                this.dni = this.ValidarDni(this.Nacionalidad, value);
+            }
+        }
+        public string StringToDNI
+        {
+            set
+            {
+                this.DNI = ValidarDni(this.nacionalidad, value);
+            }
+        }
         #endregion
 
         #region Metodos
         /// <summary>
-        /// Metodo que sirve para validar que un dni sea de tipo argentin o extranjero
+        /// Metodo que sirve para validar que un dni sea de tipo argentino o extranjero
         /// </summary>
         /// <param name="nacionalidad"></param>
         /// <param name="dato"></param>
         /// <returns>El dni validado</returns>
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
         {
-            /* switch (nacionalidad)
-             {
-                 case ENacionalidad.Argentino:
-                     if (dato < 1 || dato > 89999999)
-                         throw new NacionalidadInvalidaException();
-                     break;
-                 case ENacionalidad.Extranjero:
-                     try
-                     {
-                         if (dato < 89999999 || dato > 99999999)
-                         {
-                             throw new NacionalidadInvalidaException();
-                         }
-                     }
-                     catch(Exception e)
-                     {
-                         throw new NacionalidadInvalidaException();
-                     }
-                     break;
-             }
-             return dato;*/
-            if (dato > 0 && dato < 90000000)
+            if (dato > 0 && dato < 99999999)
             {
-                if (nacionalidad == ENacionalidad.Argentino)
+                switch (nacionalidad)
                 {
-                    return dato;
-                }
-                else
-                {
-                    throw new NacionalidadInvalidaException("La nacionalidad no se condice con el número de DNI");
-                }
-            }
-            else if (dato >= 90000000 && dato <= 99999999)
-            {
-                if (nacionalidad == ENacionalidad.Extranjero)
-                {
-                    return dato;
-                }
-                else
-                {
-                    throw new NacionalidadInvalidaException("La nacionalidad no se condice con el número de DNI");
+                    case ENacionalidad.Argentino:
+                        if (dato < 1 || dato > 89999999)
+                            throw new NacionalidadInvalidaException();
+                        break;
+                    case ENacionalidad.Extranjero:
+                        if (dato < 89999999 || dato > 99999999)
+                            throw new NacionalidadInvalidaException();
+                        break;
                 }
             }
             else
             {
-                throw new DniInvalidoException("Formato de DNI incorrecto; no debe tener mas de 8 digitos ni ser" +
-                    "un numero negativo");
+                throw new DniInvalidoException("El DNI ingresado es incorrecto, no debe ser menor a 0 ni mayor a 99999999");
             }
-    }
+            return dato;
+           
+        }
         /// <summary>
         ///  Metodo que sirve para validar que un string tenga las caracteristicas de un dni
         /// </summary>
@@ -211,14 +184,13 @@ namespace EntidadesAbstractas
         private string ValidarNombreApellido(string dato)
         {
             string validString = "";
-            Regex regex = new Regex(@"[a-zA-Z]*");
-            Match match = regex.Match(dato);
-
-            if (match.Success)
+            
+            if (Regex.IsMatch(dato, @"[a-zA-ZñÑ\s]"))
             {
-                validString = match.Value;
+                validString = dato;
             }
             return validString;
+            
         }
         #endregion
 
@@ -230,9 +202,8 @@ namespace EntidadesAbstractas
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("Datos de la persona: ");
-            sb.AppendLine($"Nombre:{this.Nombre} - Apellido:{this.Nombre} -");
-            sb.Append($"Dni:{this.DNI} - Nacionalidad:{this.Nacionalidad}");
+            sb.AppendLine($"NOMBRE COMPLETO: {this.Nombre}, {this.Apellido}");
+            sb.Append($"NACIONALIDAD: {this.Nacionalidad}");
             return sb.ToString();
         }
         #endregion
