@@ -3,14 +3,14 @@ C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\bin\Debug\TP3.exe
 C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\bin\Debug\TP3.pdb
 C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\bin\Debug\Archivos.dll
 C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\bin\Debug\Clases Abstractas.dll
-C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\bin\Debug\Entidades.dll
 C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\bin\Debug\Excepciones.dll
 C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\bin\Debug\Archivos.pdb
 C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\bin\Debug\Clases Abstractas.pdb
-C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\bin\Debug\Entidades.pdb
 C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\bin\Debug\Excepciones.pdb
 C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\obj\Debug\Matias.Sanchez.2A.TP3.csprojAssemblyReference.cache
 C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\obj\Debug\Matias.Sanchez.2A.TP3.csproj.CoreCompileInputs.cache
 C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\obj\Debug\Matias.Sanchez.2A.TP3.csproj.CopyComplete
 C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\obj\Debug\TP3.exe
 C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\obj\Debug\TP3.pdb
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\bin\Debug\ClasesInstanciables.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\TP3\TP3\bin\Debug\ClasesInstanciables.pdb
