@@ -1,0 +1,15 @@
+C:\Users\Matukhan\Videos\TP4\WindowsForms\bin\Debug\WindowsForms.exe.config
+C:\Users\Matukhan\Videos\TP4\WindowsForms\bin\Debug\WindowsForms.exe
+C:\Users\Matukhan\Videos\TP4\WindowsForms\bin\Debug\WindowsForms.pdb
+C:\Users\Matukhan\Videos\TP4\WindowsForms\bin\Debug\Entidades.dll
+C:\Users\Matukhan\Videos\TP4\WindowsForms\bin\Debug\Entidades.pdb
+C:\Users\Matukhan\Videos\TP4\WindowsForms\obj\Debug\WindowsForms.csprojAssemblyReference.cache
+C:\Users\Matukhan\Videos\TP4\WindowsForms\obj\Debug\WindowsForms.PrincipalFrm.resources
+C:\Users\Matukhan\Videos\TP4\WindowsForms\obj\Debug\WindowsForms.Properties.Resources.resources
+C:\Users\Matukhan\Videos\TP4\WindowsForms\obj\Debug\WindowsForms.csproj.GenerateResource.cache
+C:\Users\Matukhan\Videos\TP4\WindowsForms\obj\Debug\WindowsForms.csproj.CoreCompileInputs.cache
+C:\Users\Matukhan\Videos\TP4\WindowsForms\obj\Debug\WindowsForms.csproj.CopyComplete
+C:\Users\Matukhan\Videos\TP4\WindowsForms\obj\Debug\WindowsForms.exe
+C:\Users\Matukhan\Videos\TP4\WindowsForms\obj\Debug\WindowsForms.pdb
+C:\Users\Matukhan\Videos\TP4\WindowsForms\obj\Debug\WindowsForms.CrearClienteForm.resources
+C:\Users\Matukhan\Videos\TP4\WindowsForms\obj\Debug\WindowsForms.CrearArticuloForm.resources
