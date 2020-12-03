@@ -53,7 +53,7 @@ namespace TP4
 
             // Segunda muestra: Base de datos, compruebo que se puedan traer, eliminar, agregar y/o modificar
             // datos, de forma correcta sin errores ni excepciones.
-            Console.WriteLine("Test Parte 2 : Base de datos");
+            Console.WriteLine("Test Parte 2 : Base de datos");c
 
             try
             {
@@ -143,6 +143,8 @@ namespace TP4
 
             // Utilizo el metodo guardar, para guardar los datos de un negocio en formato txt
             // en el escritorio del usuario. Prevengo posibles excepciones
+            Console.WriteLine("Test Parte 3 : Archivos");
+
             try
             {
                 if (n1.Guardar("DatosNegocios.txt", n1.MostrarDatosNegocio()))
