@@ -13,8 +13,11 @@ namespace Entidades
     /// </summary>
     public static class ConexionBD
     {
+        #region Atributos
         static SqlConnection conexionSql;
         
+        #endregion
+
         #region Constructores
         /// <summary>
         /// Constructor por defecto, crea la conexion a la base de datos
@@ -73,6 +76,42 @@ namespace Entidades
             }
             return auxClientes;
         }
+        public static DataTable GetClientesDataTable()
+        {
+            DataTable tabla = new DataTable("Clientes");
+
+            SqlDataReader datos;
+
+            try
+            {
+                SqlCommand comandoSql = new SqlCommand();
+
+                comandoSql.Connection = conexionSql;
+                comandoSql.CommandType = CommandType.Text;
+                comandoSql.CommandText = "SELECT * FROM Clientes";
+
+                if (conexionSql.State != ConnectionState.Open)
+                {
+                    conexionSql.Open();
+                }
+
+               datos = comandoSql.ExecuteReader();
+
+               tabla.Load(datos);
+            }
+            catch (Exception ex)
+            {
+                throw new ConexionDBException();
+            }
+            finally
+            {
+                if (conexionSql.State == ConnectionState.Open)
+                {
+                    conexionSql.Close();
+                }
+            }
+            return tabla;
+        }
         /// <summary>
         /// Recibe una palabra que va a servir para identificar que 
         /// medio de pago es, en el enumero EMedioDePago
@@ -93,8 +132,10 @@ namespace Entidades
                     return EMedioDePago.MercadoPago;
                 case "Otro":
                     return EMedioDePago.Otro;
-                default:
+                case "SinDatos":
                     return EMedioDePago.SinDatos;
+                default:
+                    throw new Exception("Error, Ingresar un medio de pago");
             }
         }
         /// <summary>
@@ -129,7 +170,7 @@ namespace Entidades
             }
             catch (Exception ex)
             {
-                throw new ConexionDBException("Ocurrio un error al insertar el Cliente", ex);
+                throw new ConexionDBException(ex.Message);
             }
             finally
             {
@@ -246,6 +287,42 @@ namespace Entidades
             }
             return auxArticulos;
         }
+        public static DataTable GetArticulosDataTable()
+        {
+            DataTable tabla = new DataTable("Productos comprados");
+
+            SqlDataReader datos;
+
+            try
+            {
+                SqlCommand comandoSql = new SqlCommand();
+
+                comandoSql.Connection = conexionSql;
+                comandoSql.CommandType = CommandType.Text;
+                comandoSql.CommandText = "SELECT * FROM Articulos";
+
+                if (conexionSql.State != ConnectionState.Open)
+                {
+                    conexionSql.Open();
+                }
+
+                datos = comandoSql.ExecuteReader();
+
+                tabla.Load(datos);
+            }
+            catch (Exception ex)
+            {
+                throw new ConexionDBException();
+            }
+            finally
+            {
+                if (conexionSql.State == ConnectionState.Open)
+                {
+                    conexionSql.Close();
+                }
+            }
+            return tabla;
+        }
         /// <summary>
         /// Busca en el enumerado EEstado si coincide con la
         /// palabra pasada por parametro
@@ -271,7 +348,8 @@ namespace Entidades
         /// <param name="articulo">Recibe un articulo</param>
         public static void InsertArticulo(Articulo articulo)
         {
-            string auxVoid = "";
+            //Seteo un campo con el valor de -1, que representar un campo vacio en el programa.
+            string auxVoid = "-1";
             try
             {
                 SqlCommand comandoSql = new SqlCommand();

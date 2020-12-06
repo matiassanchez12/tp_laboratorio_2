@@ -16,8 +16,8 @@ namespace TestUnitario
         {
             bool ret = false;
             Negocio n1 = new Negocio("Negocio1");
-            Cliente c1 = new Cliente(1, "Dario", "12312222", EMedioDePago.Debito, 'M');
-            Cliente c2 = new Cliente(1, "Dario", "12312222", EMedioDePago.Debito, 'M');
+            Cliente c1 = new Cliente(1, "Dario", "11111111", EMedioDePago.Debito, 'M');
+            Cliente c2 = new Cliente(1, "Dario", "11111111", EMedioDePago.Debito, 'M');
 
             n1 += c1;
             n1 += c2;

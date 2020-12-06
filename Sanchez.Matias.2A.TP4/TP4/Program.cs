@@ -19,9 +19,9 @@ namespace TP4
             Negocio n1 = new Negocio("Nuevo negocio");
 
             //Creo clientes 
-            Cliente c1 = new Cliente(1, "Maria", "122124561", EMedioDePago.Credito, 'F');
-            Cliente c2 = new Cliente(2, "Jose", "323122223", EMedioDePago.MercadoPago, 'M');
-            Cliente c3 = new Cliente(3, "Juan", "423312223", EMedioDePago.Credito, 'M');
+            Cliente c1 = new Cliente(1, "Maria", "12212456", EMedioDePago.Credito, 'F');
+            Cliente c2 = new Cliente(2, "Jose", "44116687", EMedioDePago.MercadoPago, 'M');
+            Cliente c3 = new Cliente(3, "Juan", "42568795", EMedioDePago.Credito, 'M');
 
             //Creo articulos
             TV tv1 = new TV(1, "TV samsung 2' pulgadas", "Samsung", EEstado.Nuevo, 22, 2222);
@@ -143,6 +143,8 @@ namespace TP4
 
             // Utilizo el metodo guardar, para guardar los datos de un negocio en formato txt
             // en el escritorio del usuario. Prevengo posibles excepciones
+            Console.WriteLine("Test Parte 3 : Archivos");
+
             try
             {
                 if (n1.Guardar("DatosNegocios.txt", n1.MostrarDatosNegocio()))

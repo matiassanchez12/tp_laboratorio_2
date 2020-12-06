@@ -62,7 +62,8 @@ namespace WindowsForms
         /// y se trata de crear un articulo nuevo verificando
         /// si el articulo a crear es de tipo tv o radio. Por ultimo
         /// llama al delegadoCargarArticulo del form principal para
-        /// pasar por parametro el articulo creado
+        /// pasar por parametro el articulo creado. Ademas agrega un articulo
+        /// a la base de datos.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -85,11 +86,13 @@ namespace WindowsForms
                 {
                     auxArticulo = new Radio(int.Parse(id.Text), nombre.Text, marca.Text, auxEstado,
                                             double.Parse(costo.Text), int.Parse(anios.Text));
+                    ConexionBD.InsertArticulo((Radio)auxArticulo);
                 }
                 else if(this.selectArt.Text == "TV")
                 {
                     auxArticulo = new TV(int.Parse(id.Text), nombre.Text, marca.Text, auxEstado,
                                          double.Parse(peso.Text), double.Parse(costo.Text));
+                    ConexionBD.InsertArticulo((TV)auxArticulo);
                 }
                 else
                 {

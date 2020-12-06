@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Entidades
 {
@@ -44,10 +45,10 @@ namespace Entidades
         /// <param name="sexo">sexo del cliente</param>
         public Cliente(string nombre, string dni, EMedioDePago formaPago, char sexo)
         {
-            this.nombre = nombre;
-            this.dni = dni;
-            this.formaPago = formaPago;
-            this.sexo = sexo;
+            this.Nombre = nombre;
+            this.Dni = dni;
+            this.FormaPago = formaPago;
+            this.Sexo = sexo;
         }
         /// <summary>
         /// Constructor parametrizado, incluye el id del cliente y reutiliza
@@ -60,14 +61,14 @@ namespace Entidades
         /// <param name="sexo">sexo del cliente</param>
         public Cliente(int id, string nombre, string dni, EMedioDePago formaPago, char sexo):this(nombre, dni, formaPago, sexo)
         {
-            this.id = id;
+            this.Id = id;
         }
         #endregion
 
         #region Propiedades
         public int Id { get => id; set => id = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Dni { get => dni; set => dni = value; }
+        public string Nombre { get => nombre; set => nombre = this.ValidarNombre(value); }
+        public string Dni { get => dni; set => dni = this.ValidarDni(value); }
         public EMedioDePago FormaPago { get => formaPago; set => formaPago = value; }
         public char Sexo { get => sexo; set => sexo = value; }
         #endregion
@@ -86,6 +87,51 @@ namespace Entidades
             sb.AppendLine($"Dni: {this.Dni}");
             sb.AppendLine($"Forma de pago: {this.FormaPago}");
             return sb.ToString();
+        }
+        /// <summary>
+        /// Valida que la cadena pasada por parametros, sea un string
+        /// caso contrario devuelve la cadena vacia y se crea una excepcion.
+        /// </summary>
+        /// <param name="dato">cadena a verificar</param>
+        /// <returns></returns>
+        private string ValidarNombre(string dato)
+        {
+            string validString = "";
+
+            if (Regex.IsMatch(dato, @"[a-zA-ZñÑ\s]"))
+            {
+                validString = dato;
+            }
+            else
+            {
+                throw new NombreInvalidoException();
+            }
+            return validString;
+        }
+        /// <summary>
+        /// Valida que la cadena pasada por parametros sea un dni
+        /// </summary>
+        /// <param name="dato">cadena a verificar</param>
+        /// <returns></returns>
+        private string ValidarDni(string dato)
+        {
+            try
+            {
+                dato = dato.Replace("-", "");
+
+                if (dato.Length != 8)
+                {
+                    throw new DNIInvalidoException("Error, el dni ingresado es menor a 8 digitos o contiene caracteres invalidos.");
+                }
+                // Compruebo de que el string sea un numero
+                Int32.Parse(dato);
+            }
+            catch (Exception e)
+            {
+                throw new DNIInvalidoException(e.Message);
+            }
+
+            return dato;
         }
         #endregion
 

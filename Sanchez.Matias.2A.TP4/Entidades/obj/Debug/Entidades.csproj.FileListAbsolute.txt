@@ -10,3 +10,9 @@ C:\Users\Matukhan\Videos\Sanchez.Matias.2A.TP4\Entidades\obj\Debug\Entidades.csp
 C:\Users\Matukhan\Videos\Sanchez.Matias.2A.TP4\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\Matukhan\Videos\Sanchez.Matias.2A.TP4\Entidades\obj\Debug\Entidades.dll
 C:\Users\Matukhan\Videos\Sanchez.Matias.2A.TP4\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\RecuperatoriosTP\TP4-Recuperatorio\TP4\Entidades\bin\Debug\Entidades.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\RecuperatoriosTP\TP4-Recuperatorio\TP4\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\RecuperatoriosTP\TP4-Recuperatorio\TP4\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\RecuperatoriosTP\TP4-Recuperatorio\TP4\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\RecuperatoriosTP\TP4-Recuperatorio\TP4\Entidades\obj\Debug\Entidades.dll
+C:\Users\Matukhan\Desktop\Prog-Labo II\TP1\RecuperatoriosTP\TP4-Recuperatorio\TP4\Entidades\obj\Debug\Entidades.pdb

@@ -30,7 +30,8 @@ namespace WindowsForms
         /// <summary>
         /// Captura el evento click del boton, para
         /// crear un nuevo cliente y luego pasar este cliente
-        /// al delegadoCargarCliente del formulario principal
+        /// al delegadoCargarCliente del formulario principal. 
+        /// Ademas carga un nuevo cliente en la base de datos
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -40,11 +41,13 @@ namespace WindowsForms
 
             try
             {
-                Cliente auxCliente = new Cliente(int.Parse(this.id.Text),this.nombre.Text, this.dni.Text,
+                Cliente auxCliente = new Cliente(int.Parse(this.id.Text), this.nombre.Text, this.dni.Text,
                                                 ConexionBD.BuscarMedioDePago(this.formaPago.Text),
                                                 char.Parse(this.sexo.Text));
 
                 auxForm.DelegadoCargarCliente(auxCliente);
+
+                ConexionBD.InsertCliente(auxCliente);
 
                 this.Close();
             }
