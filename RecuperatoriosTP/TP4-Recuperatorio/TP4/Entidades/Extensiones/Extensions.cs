@@ -27,7 +27,7 @@ namespace Entidades
         {
             bool ret = false;
             
-            string auxVacio = "";
+            string auxVacio = "-1";
             
             SqlConnection conexionSql = new SqlConnection(@"Server = localhost\SQLEXPRESS; Database = Negocio; Trusted_Connection=True;");
             try

@@ -54,6 +54,8 @@
     <Compile Include="Excepciones\ArchivosException.cs" />
     <Compile Include="Excepciones\ConexionDBException.cs" />
     <Compile Include="Excepciones\DelegadoNullException.cs" />
+    <Compile Include="Excepciones\DNIInvalidoException.cs" />
+    <Compile Include="Excepciones\NombreInvalidoException.cs" />
     <Compile Include="Extensiones\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

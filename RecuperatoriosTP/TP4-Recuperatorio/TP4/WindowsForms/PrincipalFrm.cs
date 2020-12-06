@@ -34,7 +34,6 @@ namespace WindowsForms
         private Negocio nuevoNegocio;
         private Cliente cliente;
         private Articulo ultimoArticulo;
-
         /// <summary>
         /// Constructor de form principal, asegura mediante un cuadro de dialogo (utilizando el metodo
         /// InputBox) al comienzo del programa que se introduzca un nombre para un negocio y creando una instancia 
@@ -47,6 +46,7 @@ namespace WindowsForms
 
             string nombreNegocio;
 
+           
             try
             {
                 if (Input.InputBox("Creando un nuevo negocio..", "Ingresar nombre del negocio: ", out nombreNegocio) == DialogResult.OK)
@@ -70,6 +70,8 @@ namespace WindowsForms
         /// <summary>
         /// Al cargar el form les doy estilo y configuro algunos controles
         /// de este form
+        /// Configuro los datagrid del form y los cargo con los datos de los 
+        /// clientes y articulos, traidos de la base de datos.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -81,8 +83,6 @@ namespace WindowsForms
 
                 this.StartPosition = FormStartPosition.CenterScreen;
 
-                this.lblTotal.Text = "Total de compras: 0";
-
                 //configuro un radioButton
                 this.btn1.Checked = true;
                 this.btn1.Enabled = false;
@@ -90,8 +90,25 @@ namespace WindowsForms
                 this.btn2.Enabled = false;
                 //configuro un radioButton
                 this.btn3.Enabled = false;
-
+                //configuro un label
                 this.lbl1.ForeColor = Color.Blue;
+
+                // Configuro el datagrid1
+                ConfigurarDataGrid(dataGridView1);
+
+                //Configuro el datagrid2
+                ConfigurarDataGrid(dataGridView2);
+
+                try
+                {
+                    //cargo los data grid con datos
+                    this.dataGridView1.DataSource = ConexionBD.GetClientesDataTable();
+                    this.dataGridView2.DataSource = ConexionBD.GetArticulosDataTable();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             else
             {
@@ -171,8 +188,6 @@ namespace WindowsForms
                 cliente = auxCliente;
 
                 nuevoNegocio += cliente;
-
-                this.textBoxCliente.Text = cliente.ToString();
             }
             else
             {
@@ -184,7 +199,8 @@ namespace WindowsForms
         /// y tambien setea el valor de ultimoArticulo por el del nuevo articulo.
         /// Reemplaza los datos de richtextbox con los del nuevo articulo y 
         /// genera un nuevo hilo con la direccion de memoria del metodo
-        /// cambiarEstadoProducto.
+        /// cambiarEstadoProducto. Al agregar el articulo cargo denuevo el datatable,
+        /// para actualizar los datos, con el nuevo producto.
         /// Utilizo Hilos
         /// </summary>
         /// <param name="auxArticulo">un articulo a agregar</param>
@@ -194,7 +210,7 @@ namespace WindowsForms
             {
                 ultimoArticulo = auxArticulo;
 
-                richTextDatos.Text = auxArticulo.ToString();
+                this.dataGridView2.DataSource = ConexionBD.GetArticulosDataTable();
 
                 thread = new Thread(CambiarEstadoDeProducto);
 
@@ -295,6 +311,40 @@ namespace WindowsForms
             {
                 this.thread.Abort();
             }
+        }
+        /// <summary>
+        /// Recibe un datagrid que sera modificado con estilos predeterminados en
+        /// este metodo.
+        /// </summary>
+        /// <param name="auxDataGrid"></param>
+        private void ConfigurarDataGrid(DataGridView auxDataGrid)
+        {
+            auxDataGrid.RowsDefaultCellStyle.BackColor = Color.FromArgb(138, 184, 187);
+
+            auxDataGrid.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(190, 190, 190);
+
+            auxDataGrid.BackgroundColor = Color.Beige;
+
+            auxDataGrid.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            auxDataGrid.GridColor = Color.Black;
+
+            auxDataGrid.AllowUserToResizeRows = false;
+
+            auxDataGrid.ReadOnly = false;
+
+            auxDataGrid.MultiSelect = false;
+
+            auxDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            auxDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            auxDataGrid.RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(47, 79, 79);
+
+            auxDataGrid.RowsDefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
+
+            auxDataGrid.EditMode = DataGridViewEditMode.EditProgrammatically;
+            auxDataGrid.RowHeadersVisible = false;
         }
     }
 

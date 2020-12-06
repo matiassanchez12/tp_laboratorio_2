@@ -14,7 +14,7 @@ namespace WindowsForms
     public static class Input
     {
         /// <summary>
-        /// Este metodo genera un cuadro de dialogo,
+        /// Este metodo lo utilizo para generar un cuadro de dialogo,
         /// el cual muestra un titulo, una descripcion y un textBox
         /// que es donde se introduciran los datos por el usuario y seran guardados
         /// en una variable de tipo string.
